@@ -3,9 +3,12 @@
 <package format="3">
   <name>beginner_tutorials</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Examples of minimal publisher/subscriber using rclcpp</description>
   <maintainer email="sjd3333@umd.edu">sachin33sj</maintainer>
-  <license>TODO: License declaration</license>
+  <license>Apache License 2.0</license>
+
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

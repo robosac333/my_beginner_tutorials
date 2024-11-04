@@ -1,0 +1,8 @@
+CompileFlags:
+  CompilationDatabase: ../../../build/beginner_tutorials
+  Add: [
+    -I/opt/ros/humble/include,
+    -I/opt/ros/humble/include/rclcpp,
+    -I/opt/ros/humble/include/std_msgs,
+    --std=c++17
+  ]
