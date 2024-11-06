@@ -6,7 +6,7 @@ mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
 
 ## Step 2: Clone the repository
-git clone https://github.com/Sounderya22/my_beginner_tutorials.git
+git clone https://github.com/robosac333/my_beginner_tutorials.git
 
 ## Step 3: Build the workspace
 cd ~/ros2_ws
