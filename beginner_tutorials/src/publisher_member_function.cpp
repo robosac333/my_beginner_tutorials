@@ -30,7 +30,9 @@ MinimalPublisher::MinimalPublisher()
 
   // Warn if message templates vector is small
   if (message_templates_.size() < 3) {
-    RCLCPP_WARN(this->get_logger(), "Low number of message templates available");
+  RCLCPP_WARN(
+    this->get_logger(),
+    "Low number of message templates available");
   }
 
   // Create publisher
@@ -85,9 +87,10 @@ void MinimalPublisher::timer_callback() {
 }
 
 void MinimalPublisher::message_change_callback(
-    const std::shared_ptr<std_srvs::srv::Trigger::Request> /*request*/,
+    const std::shared_ptr<std_srvs::srv::Trigger::Request>
     std::shared_ptr<std_srvs::srv::Trigger::Response> response) {
-  current_message_index_ = (current_message_index_ + 1) % message_templates_.size();
+    current_message_index_ = (current_message_index_ + 1)
+        % message_templates_.size();
 
   RCLCPP_INFO(this->get_logger(),
     "Changing to message template: %s",
