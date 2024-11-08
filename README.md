@@ -41,7 +41,7 @@ ros2 service call /change_message std_srvs/srv/Trigger
 ```
 After using the service, the published string while be changed as follows:
 
-![Changing_publish_msg](my_beginner_tutorials/ros2_assg_2_imgs/updating_messages.png)
+![Changing_publish_msg](/ros2_assg_2_imgs/updating_messages.png)
 
 You may run the service to provide a different msg
 
