@@ -67,8 +67,14 @@ class MinimalSubscriber : public rclcpp::Node {
  * @return int Exit status of the program.
  */
 int main(int argc, char* argv[]) {
+  // Initialize ROS 2
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<MinimalSubscriber>());
+
+  // Create and spin the subscriber node
+  auto node = std::make_shared<MinimalSubscriber>();
+  rclcpp::spin(node);
+
+  // Clean shutdown
   rclcpp::shutdown();
   return 0;
 }

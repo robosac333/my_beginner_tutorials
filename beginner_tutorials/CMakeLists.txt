@@ -15,11 +15,15 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(std_srvs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
 
 include_directories(
   include
   ${rclcpp_INCLUDE_DIRS}
   ${std_msgs_INCLUDE_DIRS}
+  ${std_srvs_INCLUDE_DIRS}
 )
 
 # Add the executable
@@ -35,6 +39,7 @@ add_executable(listener
 ament_target_dependencies(talker
   rclcpp
   std_msgs
+  std_srvs
 )
 
 ament_target_dependencies(listener
@@ -42,10 +47,29 @@ ament_target_dependencies(listener
   std_msgs
 )
 
+# Set include directories for the targets
+target_include_directories(talker PRIVATE
+  ${CMAKE_CURRENT_BINARY_DIR}/include
+)
+
+target_include_directories(listener PRIVATE
+  ${CMAKE_CURRENT_BINARY_DIR}/include
+)
+
+# Ensure the generated headers are available
+install(
+  DIRECTORY include/
+  DESTINATION include/
+)
+
+# Install launch files
+install(
+  DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
 # Install the executable
-install(TARGETS
-  talker
-  listener
+install(TARGETS talker listener
   DESTINATION lib/${PROJECT_NAME}
 )
 
