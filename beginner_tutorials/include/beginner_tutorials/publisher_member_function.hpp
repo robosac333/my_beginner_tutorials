@@ -22,6 +22,8 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 #include "std_srvs/srv/trigger.hpp"
+#include "tf2_ros/transform_broadcaster.h"
+#include "geometry_msgs/msg/transform_stamped.hpp"
 
 /**
  * @brief A class that publishes string messages and provides a service to change the message template
@@ -60,6 +62,7 @@ class MinimalPublisher : public rclcpp::Node {
   rclcpp::TimerBase::SharedPtr timer_;  ///< Timer for periodic message publishing
   rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;  ///< Publisher for string messages
   rclcpp::Service<std_srvs::srv::Trigger>::SharedPtr service_;  ///< Service for changing message template
+  std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;  ///< TF2 broadcaster
   size_t count_;  ///< Counter for number of messages published
   std::vector<std::string> message_templates_;  ///< Vector of available message templates
   size_t current_message_index_;  ///< Index of current message template

@@ -17,6 +17,9 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 
 include_directories(
@@ -24,6 +27,10 @@ include_directories(
   ${rclcpp_INCLUDE_DIRS}
   ${std_msgs_INCLUDE_DIRS}
   ${std_srvs_INCLUDE_DIRS}
+  ${rosidl_default_runtime_INCLUDE_DIRS}
+  ${tf2_INCLUDE_DIRS}
+  ${tf2_ros_INCLUDE_DIRS}
+  ${geometry_msgs_INCLUDE_DIRS}
 )
 
 # Add the executable
@@ -40,6 +47,9 @@ ament_target_dependencies(talker
   rclcpp
   std_msgs
   std_srvs
+  tf2
+  tf2_ros
+  geometry_msgs
 )
 
 ament_target_dependencies(listener
