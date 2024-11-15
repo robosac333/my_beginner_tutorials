@@ -1,0 +1,25 @@
+launch:
+  # Required catch2 launch file tag
+  - catch2_launch_file:
+      description: 'Integration test for MinimalPublisher'
+
+  # Launch arguments
+  - arg:
+      name: 'test_duration'
+      default: '10.0'
+      description: 'Maximum duration for the test in seconds'
+
+  # Node under test (Publisher)
+  - node:
+      pkg: 'beginner_tutorials'
+      exec: 'talker'
+      name: 'publisher_under_test'
+
+  # Integration test node
+  - catch2_integration_test_node:
+      pkg: 'beginner_tutorials'
+      exec: 'integration_test_node'
+      name: 'test_node'
+      param:
+        - name: 'test_duration'
+          value: '$(var test_duration)'
