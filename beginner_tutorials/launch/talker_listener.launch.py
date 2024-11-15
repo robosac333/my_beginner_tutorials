@@ -4,14 +4,14 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    # Declare arguments
+    # Declaring arguments
     freq_arg = DeclareLaunchArgument(
         'frequency',
         default_value='2.0',
         description='Publishing frequency in Hz'
     )
 
-    # Create nodes
+    # Creating nodes
     talker_node = Node(
         package='beginner_tutorials',
         executable='talker',
