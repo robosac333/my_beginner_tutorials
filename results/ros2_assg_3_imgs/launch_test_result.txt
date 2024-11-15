@@ -1,0 +1,44 @@
+sachin33sj@sachin:~/ros_pub_sub_ws$ colcon test --packages-select beginner_tutorials --event-handlers console_direct+
+Starting >>> beginner_tutorials
+UpdateCTestConfiguration  from :/home/sachin33sj/ros_pub_sub_ws/build/beginner_tutorials/CTestConfiguration.ini
+Parse Config file:/home/sachin33sj/ros_pub_sub_ws/build/beginner_tutorials/CTestConfiguration.ini
+   Site: sachin
+   Build name: (empty)
+ Add coverage exclude regular expressions.
+Create new tag: 20241115-0240 - Experimental
+UpdateCTestConfiguration  from :/home/sachin33sj/ros_pub_sub_ws/build/beginner_tutorials/CTestConfiguration.ini
+Parse Config file:/home/sachin33sj/ros_pub_sub_ws/build/beginner_tutorials/CTestConfiguration.ini
+Test project /home/sachin33sj/ros_pub_sub_ws/build/beginner_tutorials
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: publisher_message_test
+
+1: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/catch_ros2/cmake/../scripts/run_test.py" "/home/sachin33sj/ros_pub_sub_ws/build/beginner_tutorials/test_results/beginner_tutorials/publisher_message_test.xml" "--package-name" "beginner_tutorials" "--command" "ros2" "launch" "beginner_tutorials" "integration_test.launch.yaml" "result_file:=/home/sachin33sj/ros_pub_sub_ws/build/beginner_tutorials/test_results/beginner_tutorials/publisher_message_test.xml"
+1: Test timeout computed to be: 60
+1: -- run_test.py: invoking following command in '/home/sachin33sj/ros_pub_sub_ws/build/beginner_tutorials':
+1:  - ros2 launch beginner_tutorials integration_test.launch.yaml result_file:=/home/sachin33sj/ros_pub_sub_ws/build/beginner_tutorials/test_results/beginner_tutorials/publisher_message_test.xml
+1: [INFO] [launch]: All log files can be found below /home/sachin33sj/.ros/log/2024-11-14-21-40-14-722316-sachin-44141
+1: [INFO] [launch]: Default logging verbosity is set to INFO
+1: [INFO] [talker-1]: process started with pid [44142]
+1: [INFO] [integration_test_node-2]: process started with pid [44144]
+1: [integration_test_node-2] [INFO] [1731638414.789679453] [test_case]: Starting publisher test
+1: [talker-1] [INFO] [1731638415.294052208] [publisher_under_test]: Publishing: 'Hello, world! 0'
+1: [integration_test_node-2] [INFO] [1731638415.295076569] [test_node]: Received message: 'Hello, world! 0'
+1: [integration_test_node-2] [INFO] [1731638415.395185542] [test_node]: Test completed successfully
+1: [integration_test_node-2] Randomness seeded to: 1307464097
+1: [integration_test_node-2] ===============================================================================
+1: [integration_test_node-2] All tests passed (2 assertions in 1 test case)
+1: [integration_test_node-2]
+1: [INFO] [integration_test_node-2]: process has finished cleanly [pid 44144]
+1: [INFO] [launch]: process[integration_test_node-2] was required: shutting down launched system
+1: [INFO] [talker-1]: sending signal 'SIGINT' to process[talker-1]
+1: [talker-1] [INFO] [1731638415.511442970] [rclcpp]: signal_handler(signum=2)
+1: [INFO] [talker-1]: process has finished cleanly [pid 44142]
+1: -- run_test.py: return code 0
+1: -- run_test.py: verify result file '/home/sachin33sj/ros_pub_sub_ws/build/beginner_tutorials/test_results/beginner_tutorials/publisher_message_test.xml'
+1/1 Test #1: publisher_message_test ...........   Passed    1.15 sec

@@ -96,6 +96,7 @@ void MinimalPublisher::message_change_callback(
                        std::to_string(current_message_index_);
 }
 
+#ifndef BUILDING_LIBRARY
 int main(int argc, char* argv[]) {
     rclcpp::init(argc, argv);
     auto node = std::make_shared<MinimalPublisher>();
@@ -103,3 +104,4 @@ int main(int argc, char* argv[]) {
     rclcpp::shutdown();
     return 0;
 }
+#endif

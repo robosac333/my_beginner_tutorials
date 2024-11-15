@@ -1,5 +1,5 @@
 /**
- * @file MinimalPublisher.hpp
+ * @file publisher_member_function.hpp
  * @author Sachin Jadhav (sjd3333@umd.edu)
  * @brief Header file for MinimalPublisher class that publishes string messages and provides a message change service
  * @version 0.1
@@ -10,8 +10,8 @@
  * you may not use this file except in compliance with the License.
  */
 
-#ifndef MINIMAL_PUBLISHER_HPP_
-#define MINIMAL_PUBLISHER_HPP_
+#ifndef PUBLISHER_MEMBER_FUNCTION_HPP_
+#define PUBLISHER_MEMBER_FUNCTION_HPP_
 
 #include <chrono>
 #include <functional>
@@ -68,4 +68,4 @@ class MinimalPublisher : public rclcpp::Node {
   size_t current_message_index_;  ///< Index of current message template
 };
 
-#endif  // MINIMAL_PUBLISHER_HPP_
+#endif  // PUBLISHER_MEMBER_FUNCTION_HPP_
