@@ -41,7 +41,6 @@ ros2 service call /change_message std_srvs/srv/Trigger
 ```
 After using the service, the published string while be changed as follows:
 
-![Changing_publish_msg](/ros2_assg_2_imgs/updating_messages.png)
 
 You may run the service to provide a different msg
 
@@ -49,6 +48,58 @@ You may run the service to provide a different msg
 To launch both the nodes together and publish to a different frequency, you may use the following command:
 ```sh
 ros2 launch beginner_tutorials talker_listener.launch.py frequency:=5.0
+```
+
+## TF transform broadcast
+To check the changes in the tf-broadcast displaying transformation changes
+
+```sh
+ros2 run tf2_ros tf2_echo world talk
+```
+
+To create a pdf file for the ongoing rqt frames
+```sh
+ros2 run tf2_tools view_frames
+```
+
+## Record the bag file
+In order to collect the messages published in the talker node inside a rosbag, run the talker node in a terminal.
+In the other terminal run the following command:
+
+```sh
+ros2 launch beginner_tutorials bag_record.launch.py
+```
+The bag will collect messages and info coming from the running topics for 15 seconds and then close by saving the bag in the results folder
+
+```sh
+# Enable recording
+ros2 launch beginner_tutorials bag_record.launch.py record_bag:=True
+
+# Disable recording
+ros2 launch beginner_tutorials bag_record.launch.py record_bag:=False
+```
+
+## Inspect the bag file
+
+You might replace the path with the complete path to the bag file. This will provide the information about the info inside the rosbag
+```sh
+ros2 bag info src/my_beginner_tutorials/results/ros2_assg_3_imgs/rosbag2_2024_11_14-23_05_31
+```
+
+## Run the bag file
+
+To check the messages coming from the bag, run the listener node in one window and in another run 
+
+```sh
+ros2 bag play src/my_beginner_tutorials/results/ros2_assg_3_imgs/rosbag2_2024_11_14-23_05_31
+```
+
+## Colcon-test
+
+To test the integration unit tests run the following command after building from source
+
+```sh
+colcon test  --return-code-on-test-failure --event-handlers console_cohesion+ --packages-select beginner_tutorials
 ```
 
 ## cpp-lint
@@ -63,3 +114,4 @@ cpplint --filter=-build/c++11,+build/c++17,-build/namespaces,-build/include_orde
 - ROS2 Humble
 - Git
 - C++17
+- catch-ros2

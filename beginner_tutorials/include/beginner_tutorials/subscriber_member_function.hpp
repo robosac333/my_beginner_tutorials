@@ -1,9 +1,10 @@
 /**
- * @file MinimalSubscriber.hpp
+ * @file subscriber_member_function.hpp
  * @author Sachin Jadhav (sjd3333@umd.edu)
- * @brief Header file for MinimalSubscriber class that subscribes to string messages
+ * @brief Header file for MinimalSubscriber class that subscribes to string
+ * messages
  * @version 0.1
- * @date 2024-11-06
+ * @date 2024-11-15
  *
  * @copyright Copyright (c) 2024 Sachin Jadhav
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -45,8 +46,9 @@ class MinimalSubscriber : public rclcpp::Node {
    */
   void topic_callback(const std_msgs::msg::String& msg);
 
-  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;  ///< Subscriber for string messages
-  size_t count_;  ///< Counter for number of messages received
+  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr
+      subscription_;  ///< Subscriber for string messages
+  size_t count_;      ///< Counter for number of messages received
 };
 
 #endif  // MINIMAL_SUBSCRIBER_HPP_

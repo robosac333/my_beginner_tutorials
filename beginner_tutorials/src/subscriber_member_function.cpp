@@ -1,8 +1,11 @@
+// For subscriber_member_function.cpp:
+// Copyright 2024 Sachin Jadhav
 /**
- * @file MinimalSubscriber.cpp
- * @brief Implementation of the MinimalSubscriber class for a ROS2 node that subscribes to a topic.
+ * @file subscriber_member_function.cpp
+ * @brief Implementation of the MinimalSubscriber class for a ROS2 node that
+ * subscribes to a topic.
  * @version 0.1
- * @date 2024-11-06
+ * @date 2024-11-15
  *
  * @author
  * Sachin Jadhav (sjd3333@umd.edu)
@@ -14,6 +17,7 @@
  */
 
 #include "beginner_tutorials/subscriber_member_function.hpp"
+
 #include <functional>
 #include <memory>
 
@@ -21,42 +25,32 @@ using std::placeholders::_1;
 
 /**
  * @brief Constructor for MinimalSubscriber class
- * @details Initializes the ROS2 node and creates a subscription to the 'topic' topic
+ * @details Initializes the ROS2 node and creates a subscription to the 'topic'
+ * topic
  */
-MinimalSubscriber::MinimalSubscriber()
-    : Node("minimal_subscriber"),
-      count_(0) {
+MinimalSubscriber::MinimalSubscriber() : Node("minimal_subscriber"), count_(0) {
   subscription_ = this->create_subscription<std_msgs::msg::String>(
-      "topic",
-      10,
-      std::bind(&MinimalSubscriber::topic_callback, this, _1));
+      "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
 }
 
 /**
  * @brief Callback function for processing received messages
  * @param msg The received string message
- * @details Processes incoming messages and demonstrates different logging levels
- *          Keeps track of message count and provides various status updates
+ * @details Processes incoming messages and demonstrates different logging
+ * levels Keeps track of message count and provides various status updates
  */
 void MinimalSubscriber::topic_callback(const std_msgs::msg::String& msg) {
   // Log message at different severity levels for demonstration
-  RCLCPP_DEBUG(this->get_logger(),
-               "Debug: Message #%zu received",
-               count_);
-  RCLCPP_INFO(this->get_logger(),
-              "I heard: '%s'",
-              msg.data.c_str());
+  RCLCPP_DEBUG(this->get_logger(), "Debug: Message #%zu received", count_);
+  RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
 
   // Example of different logging levels
   if (count_ % 5 == 0) {
-    RCLCPP_WARN(this->get_logger(),
-                "Received %zu messages so far",
-                count_);
+    RCLCPP_WARN(this->get_logger(), "Received %zu messages so far", count_);
   }
 
   if (msg.data.empty()) {
-    RCLCPP_ERROR(this->get_logger(),
-                 "Received empty message!");
+    RCLCPP_ERROR(this->get_logger(), "Received empty message!");
   }
 
   count_++;
